@@ -11,6 +11,7 @@ set(SOURCES
     main/whycon.cpp
     common/cmath.cpp
     common/CRawImage.cpp
+    common/geometricMedian.cpp
     imageproc/CCircleDetect.cpp
 )
 
