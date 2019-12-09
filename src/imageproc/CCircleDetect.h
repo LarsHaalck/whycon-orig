@@ -11,7 +11,6 @@
 #define __CCIRCLEDETECT_H__
 
 #include "CRawImage.h"
-#include "CTimer.h"
 #include <math.h>
 #include "cmath.h"
 #define COLOR_PRECISION 32
@@ -105,8 +104,7 @@ class CCircleDetect
 		int width,height,len,siz;
 		int expand[4];
 		unsigned char *ptr;
-		CTimer timer;
-		int tima,timb,timc,timd,sizer,sizerAll;
+		int sizer,sizerAll;
 		float diameterRatio;
 		bool ownBuffer;
 		static int *buffer;
