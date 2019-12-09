@@ -149,7 +149,17 @@ int main(int argc, char* argv[])
     cv::drawMarker(firstFrame, bl2, cv::Scalar(0, 0, 255));
     cv::drawMarker(firstFrame, br2, cv::Scalar(0, 0, 255));
 
-    cv::imshow("frame", firstFrame);
+    std::vector<cv::Point2f> src = {tl, tr, bl, br};
+    auto height = bl.y - tl.y;
+    auto width = tr.x - tl.x;
+    std::vector<cv::Point2f> dst
+        = {{0, 0}, {width, 0}, {0, height}, {width, height}};
+    cv::Mat H = cv::findHomography(src, dst, cv::LMEDS);
+
+    cv::Mat warped;
+    cv::warpPerspective(firstFrame, warped, H, cv::Size(width, height));
+
+    cv::imshow("frame", warped);
     while(true)
     {
         auto key = cv::waitKey(0);

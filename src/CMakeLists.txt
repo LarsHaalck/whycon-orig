@@ -30,4 +30,5 @@ target_link_libraries(whycon
     opencv_highgui
     opencv_imgproc
     opencv_videoio
+    opencv_calib3d
 )
